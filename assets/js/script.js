@@ -40,8 +40,11 @@ const swiperFavorites = new Swiper('.favorites__swiper', {
     loop: true,
     grabCursor: true,
     slidesPerView: 'auto',
-    centeredSlides: 'auto'
-})
+    centeredSlides: 'auto',
+    speed: 500
+});
+
+
 
 /*=============== SHOW SCROLL UP ===============*/
 
