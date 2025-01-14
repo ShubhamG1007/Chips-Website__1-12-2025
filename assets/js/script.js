@@ -44,12 +44,38 @@ const swiperFavorites = new Swiper('.favorites__swiper', {
     speed: 500
 });
 
-
-
 /*=============== SHOW SCROLL UP ===============*/
+const scrollup = () => {
+    const scrollUpButton = document.getElementById('scroll-up');
 
+    if (window.scrollY >= 313) {
+        scrollUpButton.classList.add('show-scroll');
+    } else {
+        scrollUpButton.classList.remove('show-scroll');
+    }
+};
+window.addEventListener('scroll', scrollup);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]');
 
+const scrollActive = () => {
+    const scrollDown = window.scrollY;
+
+    sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight,
+            sectionTop = current.offsetTop - 58,
+            sectionId = current.getAttribute('id'),
+            sectionClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+
+        if (scrollDown >= sectionTop && scrollDown < sectionTop + sectionHeight) {
+            sectionClass.classList.add('active-link');
+        } else {
+            sectionClass.classList.remove('active-link');
+        }
+    });
+};
+
+window.addEventListener('scroll', scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
